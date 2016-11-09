@@ -7,5 +7,5 @@ javaOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
 
 libraryDependencies ++= Seq(
-"org.apache.spark" %% "spark-core" % "2.1.0" % "provided"
+    "org.apache.spark" % "spark-core_2.11" % "2.0.1"
 )
