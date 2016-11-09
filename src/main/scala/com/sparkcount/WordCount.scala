@@ -2,7 +2,7 @@ package com.sparkcount
 
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
-import org.spache.spark.SparkConf
+import org.apache.spark.SparkConf
 
 object SparkWordCount{
   def main(args: Array[String]){
@@ -17,7 +17,7 @@ object SparkWordCount{
     val tokenized = sc.textFile(args(0)).flatMap(_.split(" "))
 
     // count the occurrence of each word
-    val wordCount = tokenized.amp((_, 1)).reduceByKey(_ + _)
+    val wordCount = tokenized.map((_, 1)).reduceByKey(_ + _)
 
     // filter out words with fewer than threshold occurrences
     val filtered = wordCount.filter(_._2 >= threshold)
@@ -25,6 +25,6 @@ object SparkWordCount{
     // count characters
     val charCounts = filtered.flatMap(_._1.toCharArray).map((_,1)).reduceByKey(_+_)
 
-    System.out.println(characters.collect().mkString(", "))
+    System.out.println(charCounts.collect().mkString(", "))
   }
 }
