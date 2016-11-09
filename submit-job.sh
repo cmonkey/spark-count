@@ -1,0 +1,11 @@
+#!/bin/bash
+
+~/gitrepo/spark/bin/spark-submit --class com.sparkcount.WordCount \
+    --master spark://10.204.43.43:7077 \
+    --deploy-mode cluster \
+    --executor-memory 5g \
+    --name wordcount \
+    --conf "spark.app.id=wordcount" \
+    --supervise \
+    ~/develop/spark-count/target/scala-2.11/spark-count_2.11-0.0.1.jar \
+    ~/develop/spark-count/src/main/scala/com/sparkcount/WordCount.scala 20
