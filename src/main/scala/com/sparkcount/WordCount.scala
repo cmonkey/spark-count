@@ -25,6 +25,6 @@ object SparkWordCount{
     // count characters
     val charCounts = filtered.flatMap(_._1.toCharArray).map((_,1)).reduceByKey(_+_)
 
-    System.out.println(characters.collect().mkString()", ")
+    System.out.println(characters.collect().mkString(", "))
   }
 }
