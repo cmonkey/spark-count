@@ -9,7 +9,9 @@ object GroupKeyCheckPoint{
     val conf = new SparkConf().setAppName("GroupKeyCheckPoint")
     val sc  = new SparkContext(conf)
 
-    sc.setCheckpointDir("/home/cmonkey/Downloads/data/checkpoint")
+    val checkpoint = "hdfs:/archlinux.vagrant.vm:9000/usr/spark/checkpoint"
+
+    sc.setCheckpointDir(checkpoint)
 
     val data = Array[(Int, Char)](
       (1, 'a'), 
