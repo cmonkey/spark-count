@@ -9,7 +9,7 @@ object GroupKeyCheckPoint{
     val conf = new SparkConf().setAppName("GroupKeyCheckPoint")
     val sc  = new SparkContext(conf)
 
-    val checkpoint = "hdfs:/archlinux.vagrant.vm:9000/usr/spark/checkpoint"
+    val checkpoint = "hdfs:/10.0.0.6:9000/usr/spark/checkpoint"
 
     sc.setCheckpointDir(checkpoint)
 
