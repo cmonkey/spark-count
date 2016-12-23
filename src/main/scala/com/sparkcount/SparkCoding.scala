@@ -1,5 +1,9 @@
 package com.sparkcount
 
+import org.apache.spark.SparkConf
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+
 /**
   * Created by cmonkey on 12/22/16.
   */
@@ -11,9 +15,9 @@ object SparkCoding {
 
     val sc = new SparkContext(config)
 
-    sc.parallelize(List(1,2,3,4,,5,6)).map(_ * 2).filter(_ > 5).collect()
+    sc.parallelize(List(1,2,3,4,5,6)).map(_ * 2).filter(_ > 5).collect()
 
-    val rdd = sc.parallelize(List(1,2,,3,4,5,6,7,8,9,10))
+    val rdd = sc.parallelize(List(1,2,3,4,5,6,7,8,9,10))
     rdd.reduce(_ + _)
 
     val rdd1 = sc.parallelize(List(("a", 1), ("a", 2), ("b", 1), ("b", 3)))
