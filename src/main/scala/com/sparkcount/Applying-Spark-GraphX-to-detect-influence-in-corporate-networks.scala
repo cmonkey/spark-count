@@ -27,7 +27,7 @@ object main{
       compDf("bod")
       )
 
-    comps.show()
+    comps.show(100)
 
     /**
     val compRDD1 = comps.map(t =>
