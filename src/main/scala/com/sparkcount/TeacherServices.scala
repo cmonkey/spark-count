@@ -29,5 +29,5 @@ object TeacherServices extends App{
 
   val system = ActorSystem("TeacherService", config)
 
-  system.actorOf(Props(TeacherActor), "teacherActor")
+  //system.actorOf(Props(TeacherActor), "teacherActor")
 }
