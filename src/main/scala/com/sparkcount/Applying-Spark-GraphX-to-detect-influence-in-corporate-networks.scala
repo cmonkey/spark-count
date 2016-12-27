@@ -21,6 +21,15 @@ object main{
       "password" -> "root")
 
     val compDf = sqlContext.read.format("jdbc").options(connInfoMap).load()
+    compDf.createOrReplaceTempView("companies")
+
+    val ids =  sqlContext.sql("select * from companies")
+    ids.printSchema()
+    //ids.first()
+    //ids.select("url").show(5)
+    //println(ids.count())
+
+    //ids.collect().foreach(println)
 
     val comps = compDf.select(compDf("id"), 
       compDf("companyname"),
