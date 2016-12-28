@@ -20,5 +20,7 @@ object SparkSessionAPI{
     // Read data using Spark Session 
     val df = sparkSession.read.option("header", "true").
     csv("src/main/resources/sales.csv")
+
+    df.printSchema()
   }
 }
