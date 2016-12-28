@@ -23,10 +23,10 @@ object StudentSimulator extends App{
 
   val actorSystem = ActorSystem("StudentClient", config)
 
-  //val studentActor = actorSystem.actorOf(Props(StudentActor))
+  val studentActor = actorSystem.actorOf(Props[StudentActor])
 
   while(true){
-    //studentActor ! 7.toLong
+    studentActor ! 7.toLong
     Thread.sleep(5000)
   }
 
