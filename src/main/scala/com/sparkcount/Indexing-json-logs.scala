@@ -4,7 +4,7 @@ import org.apache.spark.sql.SparkSession
 
 object IndexingJsonLogs{
 
-  def main(args: Array[String]) = {
+  def main(args: Array[String]){
 
     val connInfoMap = Map("url" -> "jdbc:mysql://10.204.43.88:3306/demo",
       "driver" -> "com.mysql.jdbc.Driver",
@@ -29,6 +29,18 @@ object IndexingJsonLogs{
     session.sql("select * from temp").show(tempCount.toInt)
 
     session.sql("select * from temp").printSchema()
+
+    val catalog = session.catalog
+
+    catalog.listDatabases().select("name").show()
+
+    catalog.listTables().select("name").show()
+
+    df.cache()
+    println(catalog.isCached("temp"))
+    println(catalog.isCached("comp"))
+
+    catalog.listFunctions().select("name", "description", "className", "isTemporary").show()
 
   }
 }
