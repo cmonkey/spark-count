@@ -25,9 +25,9 @@ class TeacherActor extends Actor{
 object TeacherServices extends App{
   val config = ConfigFactory
   .parseResources("lietal.conf")
-  .getConfig("RemoveServerSideActor")
+  .getConfig("RemoteServerSideActor")
 
   val system = ActorSystem("TeacherService", config)
 
-  //system.actorOf(Props(TeacherActor), "teacherActor")
+  system.actorOf(Props[TeacherActor], "teacherActor")
 }
