@@ -11,6 +11,7 @@ libraryDependencies ++= Seq(
     "org.apache.spark" % "spark-sql_2.11" % "2.0.1",
     "org.apache.spark" % "spark-graphx_2.11" % "2.0.1",
     "org.apache.spark" % "spark-hive_2.11" % "2.0.1",
+    "org.apache.flink" %% "flink-scala" % "1.0.0",
     "com.typesafe.akka" % "akka-actor_2.10" % "2.2.5",
     "com.typesafe.akka" % "akka-remote_2.10" % "2.2.5",
      "mysql" % "mysql-connector-java" % "5.1.38"
