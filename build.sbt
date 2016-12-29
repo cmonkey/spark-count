@@ -11,6 +11,7 @@ libraryDependencies ++= Seq(
     "org.apache.spark" % "spark-sql_2.11" % "2.0.1",
     "org.apache.spark" % "spark-graphx_2.11" % "2.0.1",
     "org.apache.spark" % "spark-hive_2.11" % "2.0.1",
+    "org.apache.spark" % "spark-streaming_2.11" % "2.0.1",
     "org.apache.flink" %% "flink-scala" % "1.0.0",
     "com.typesafe.akka" % "akka-actor_2.11" % "2.3.7",
     "com.typesafe.akka" % "akka-remote_2.11" % "2.3.7",
