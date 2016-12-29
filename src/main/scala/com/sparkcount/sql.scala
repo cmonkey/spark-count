@@ -6,7 +6,7 @@ import org.apache.spark.sql.SparkSession._
 object Sql{
   def main(args: Array[String]){
 
-    val spark: SparkSession = SparkSession.builder.appName("Sql").getOrCreate
+    val spark: SparkSession = SparkSession.builder.appName("Sql").master("local").getOrCreate
 
     spark.udf.register("myUpper", (s: String) => s.toUpperCase)
 
