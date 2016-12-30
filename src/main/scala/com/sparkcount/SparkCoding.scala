@@ -3,6 +3,7 @@ package com.sparkcount
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
+import org.apache.spark.sql.SparkSession
 
 /**
   * Created by cmonkey on 12/22/16.
@@ -11,9 +12,10 @@ object SparkCoding {
 
   def main(args: Array[String]): Unit = {
 
-    val config = new SparkConf().setAppName("SparkCoding")
 
-    val sc = new SparkContext(config)
+    val sparkSession = SparkSession.builder().master("local[*]").appName("SparkConding").getOrCreate()
+
+    val sc = sparkSession.sparkContext
 
     sc.parallelize(List(1,2,3,4,5,6)).map(_ * 2).filter(_ > 5).collect()
 
