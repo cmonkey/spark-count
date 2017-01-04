@@ -7,7 +7,7 @@ import org.apache.spark.SparkContext._
 
 object TestGroupBy{
   def main(args: Array[String]){
-    val conf        = new SparkConf().setAppName("Test GroupBy")
+    val conf        = new SparkConf().setAppName("Test GroupBy").setMaster("local[*]")
 
     var numMappers  = 100
     var numKVPairs  = 10000
