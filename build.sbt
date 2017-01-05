@@ -16,5 +16,6 @@ libraryDependencies ++= Seq(
     "com.typesafe.akka" % "akka-actor_2.11" % "2.3.7",
     "com.typesafe.akka" % "akka-remote_2.11" % "2.3.7",
     "org.jblas" % "jblas" % "1.2.4",
+    "junit" % "junit" % "4.12",
      "mysql" % "mysql-connector-java" % "5.1.38"
 )
