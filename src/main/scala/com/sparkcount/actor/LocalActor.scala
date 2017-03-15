@@ -1,6 +1,7 @@
 package com.sparkcount.actor
 
 import java.io.File
+/*
 
 import akka.actor.{Actor, ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
@@ -34,3 +35,4 @@ object LocalActor{
     val localActor = system.actorOf(Props[LocalActor], name="local")
   }
 }
+*/

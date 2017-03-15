@@ -3,9 +3,11 @@ package com.sparkcount.test;
 /**
  * Created by cmonkey on 1/5/17.
  */
+/*
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+*/
 
 
 public class FirstTest {
@@ -13,6 +15,7 @@ public class FirstTest {
     public static void main(String [] args){
 
         System.setProperty("webdriver.gecko.driver","/home/cmonkey/Downloads/geckodriver");
+        /*
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         WebDriver driver = new FirefoxDriver(capabilities);
         String url = "http://www.amazon.in/";
@@ -39,5 +42,6 @@ public class FirstTest {
         int pageSourceLength = pageSource.length();
         System.out.println("Total length of the Page Source is : " + pageSourceLength);
         driver.close();
+        */
     }
 }

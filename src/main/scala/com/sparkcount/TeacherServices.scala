@@ -1,3 +1,4 @@
+/*
 import akka.actor.{Actor, ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 
@@ -31,3 +32,4 @@ object TeacherServices extends App{
 
   system.actorOf(Props[TeacherActor], "teacherActor")
 }
+*/

@@ -1,7 +1,7 @@
 package com.sparkcount
 
 import org.apache.spark.sql.SparkSession
-import org.jblas.DoubleMatrix
+//import org.jblas.DoubleMatrix
 object GlomSpark{
 
   def main(args: Array[String]): Unit = {
@@ -30,9 +30,11 @@ object GlomSpark{
     val weights = List(1.0, 0.5,3)
     val rowRDD = sc.makeRDD(rowsList)
     val result = rowRDD.glom().map(value => {
+      /*
       val doubleMatrix = new DoubleMatrix(value.map(value => value.toArray))
       val weightMatrix = new DoubleMatrix(1, weights.length, weights.toArray:_*)
       doubleMatrix.mmul(weightMatrix.transpose())
+      */
     })
 
     println(s"This result = ${result.collect().toList}")

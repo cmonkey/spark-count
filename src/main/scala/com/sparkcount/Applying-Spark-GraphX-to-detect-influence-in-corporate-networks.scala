@@ -1,4 +1,4 @@
-import org.apache.spark.graphx._
+//import org.apache.spark.graphx._
 import org.apache.spark.rdd.RDD
 
 import scala.util.MurmurHash
@@ -83,12 +83,14 @@ object main{
     Director(id.toInt, name, bod.trim.toInt)
   }
 
+  /*
   def toEdge(name: String, company: String): Edge[Int] = {
     Edge(MurmurHash3.stringHash(company),
       MurmurHash3.stringHash(name),
       MurmurHash3.stringHash(name)
       )
   }
+  */
 
 }
 
