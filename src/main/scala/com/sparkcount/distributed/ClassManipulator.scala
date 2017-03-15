@@ -13,7 +13,7 @@ object ClassManipulator{
 
     // just use the class simple name as the file name 
 
-    val outputFile = className.split(',').last + ".class"
+    val outputFile = className.split('.').last + ".class"
     val fileStream = new FileOutputStream(outputFile)
     var data = stream.read()
     while(data != -1){
