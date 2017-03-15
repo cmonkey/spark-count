@@ -1,6 +1,6 @@
 package com.sparkcount.distributed
 
-import java.io.{FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream}
+import java.io._
 
 object FileSerializer{
 
@@ -13,9 +13,11 @@ object FileSerializer{
     oos.close()
   }
 
-  def readObjectFromFile(file: String): Object = {
+  def readObjectFromFile(file: String, classLoader: ClassLoader): Object = {
     val fileStream = new FileInputStream(file)
-    val ois = new ObjectInputStream(fileStream)
+    val ois = new ObjectInputStream(fileStream){
+      override def resolveClass(desc: ObjectStreamClass): Class[_] = Class.forName(desc.getName, false, classLoader)
+    }
 
     val obj = ois.readObject()
 
