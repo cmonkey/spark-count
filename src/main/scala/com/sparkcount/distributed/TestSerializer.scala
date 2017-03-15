@@ -5,12 +5,14 @@ object TestSerializer{
   def main(args: Array[String]):Unit = {
 
     val task = new SimpleTask()
+    task.run()
+
     FileSerializer.writeObjectToFile(task, "task.ser")
     ClassManipulator.saveClassFile(task)
 
-    /*
-    val readObjectTask = FileSerializer.readObjectFromFile("task.ser").asInstanceOf[Task]
+    val fileClassLoader = new FileClassLoader()
+
+    val readObjectTask = FileSerializer.readObjectFromFile("task.ser", fileClassLoader).asInstanceOf[Task]
     readObjectTask.run()
-    */
   }
 }
