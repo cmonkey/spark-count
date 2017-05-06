@@ -1,6 +1,5 @@
 package com.sparkcount;
 
-import com.clearspring.analytics.util.Lists;
 import scala.Int;
 
 import java.util.ArrayList;
