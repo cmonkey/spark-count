@@ -16,7 +16,7 @@ public class CreateHighOrderFunction {
 
     private static List<Integer> list;
 
-    private static List<Integer> result = Lists.newArrayList();
+    private static List<Integer> result = new ArrayList<>();
 
     public CreateHighOrderFunction(List<Integer> list){
         CreateHighOrderFunction.list = list;
