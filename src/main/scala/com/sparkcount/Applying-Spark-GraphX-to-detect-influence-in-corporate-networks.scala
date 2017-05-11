@@ -2,7 +2,7 @@
 import org.apache.spark.rdd.RDD
 
 import scala.util.MurmurHash
-import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.sql.SparkSession
 
 import scala.util.hashing.MurmurHash3
 
@@ -10,9 +10,8 @@ object main{
 
   def main(args: Array[String]){
 
-    val sc = new SparkContext(new SparkConf().setAppName("graphx"))
-
-    val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+    val spark = SparkSession.builder().appName("graphx").master("local").getOrCreate()
+    val sqlContext = spark.sqlContext
 
     val connInfoMap = Map("url" -> "jdbc:mysql://10.204.43.88:3306/demo", 
       "driver" -> "com.mysql.jdbc.Driver",
