@@ -16,17 +16,3 @@ object PremiumUser{
   def unapply(user: PremlumUser): Option[String] = Some(user.name)
 }
 
-
-object  Main{
-
-  def main(args: Array[String]) = {
-    //FreeUser.unapply(new FreeUser"hi")
-  }
-  def advance(xs: List[UserInfo]) = xs match {
-
-    case UserInfo(_, _, score1) :: UserInfo(_, _, score2) :: _ => score1 - score2
-    case _ => 0
-  }
-}
-
-
