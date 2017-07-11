@@ -32,7 +32,7 @@ public class Singleton implements Serializable{
         return instance;
     }
 
-    protected Singleton readResolve(Object object) throws IOException {
+    protected Singleton readResolve() throws IOException {
         return getInstance();
     }
 }
