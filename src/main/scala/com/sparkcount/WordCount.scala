@@ -3,18 +3,20 @@ package com.sparkcount
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
+import org.apache.spark.sql.SparkSession
 
 object WordCount{
   def main(args: Array[String]){
     // create Spark context with Spark configuration
 
-    val sc = new SparkContext(new SparkConf().setAppName("Spark Count"))
+    val sc = SparkSession.builder().master("local[*]").appName("spark count").getOrCreate().sparkContext
+    //val sc = new SparkContext(new SparkConf().setAppName("Spark Count"))
 
     // get threshold
-    val threshold = args(1).toInt
+    val threshold = 10
 
     // read in text file and split each document into words
-    val tokenized = sc.textFile(args(0)).flatMap(_.split(" "))
+    val tokenized = sc.textFile("README.md").flatMap(_.split(" "))
 
     // count the occurrence of each word
     val wordCount = tokenized.map((_, 1)).reduceByKey(_ + _)
