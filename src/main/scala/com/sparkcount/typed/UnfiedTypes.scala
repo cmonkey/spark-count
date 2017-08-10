@@ -19,5 +19,9 @@ object UnfiedTypes{
     val number: Int = face
 
     println(number)
+
+    val a: Long = 987654321
+    val b: Float = a
+    val c: Long = b.toLong
   }
 }
