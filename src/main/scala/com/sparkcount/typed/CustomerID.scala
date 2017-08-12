@@ -17,6 +17,10 @@ object CustomerID{
       case CustomerID(name) => println(name)
       case _ => println("Could not extract a CustomerId")
     }
+
+    val customer2ID = CustomerID("Nico")
+    val CustomerID(name) = customer2ID
+    println(name)
   }
 
 }
