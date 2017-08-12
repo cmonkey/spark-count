@@ -4,7 +4,7 @@ import scala.util.Random
 
 object PatternMatching{
 
-  def main(args: Array[String]) = {
+  def main(args: Array[String]):Unit = {
 
     val x: Int = Random.nextInt(10)
 
@@ -15,8 +15,12 @@ object PatternMatching{
       case _ => "many"
     }
 
-    matchTest(3)
-    matchTest(1)
+    val m = matchTest(3)
+    val m1 = matchTest(1)
+
+    println(s"$x")
+    println(s"$m")
+    println(s"$m1")
   }
 
   def matchTest(x: Int): String = {
