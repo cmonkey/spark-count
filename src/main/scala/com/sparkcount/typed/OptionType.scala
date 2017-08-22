@@ -1,13 +1,13 @@
 package com.sparkcount.typed
 
-case class User(id:Int, email:String)
+case class UserInfo(id:Int, email:String)
 
 object OptionType {
 
-  def getEmail(id:Int):Option[User] = {
+  def getEmail(id:Int):Option[UserInfo] = {
 
     if(id == 10){
-      Some(User(1,"test@gmail.com"))
+      Some(UserInfo(1,"test@gmail.com"))
     }else{
       None
     }

@@ -1,6 +1,6 @@
 package com.sparkcount.typed
 
-case class User(val name: String, val age : Int)
+case class UserBase(val name: String, val age : Int)
 
 
 object ForComprehensions{
@@ -8,10 +8,10 @@ object ForComprehensions{
   def main(args:Array[String]): Unit = {
 
     val userBase = List(
-      new User("tr", 28),
-      new User("ke", 33),
-      new User("je", 44),
-      new User("de", 23)
+      new UserBase("tr", 28),
+      new UserBase("ke", 33),
+      new UserBase("je", 44),
+      new UserBase("de", 23)
       )
 
       val twentySomethings = for(user <- userBase if(user.age >= 20 && user.age < 30)) yield user.name
