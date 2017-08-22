@@ -1,5 +1,7 @@
 package com.sparkcount.timeWheel
 
-class Task {
+trait Task extends Runnable {
+
+  def getPeriod(): Long
 
 }
