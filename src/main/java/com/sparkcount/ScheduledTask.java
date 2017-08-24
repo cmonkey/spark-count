@@ -9,17 +9,23 @@ public class ScheduledTask {
 
     public static void main(String[] args){
 
-        ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor((r) ->  {
+        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1, (runnable) ->  {
             AtomicLong count = new AtomicLong(0);
-            Thread t = new Thread(new ThreadGroup("single"), r, "single-" + count.getAndIncrement());
+            Thread t = new Thread(new ThreadGroup("single"), runnable, "single-" + count.getAndIncrement());
 
-            t.setDaemon(true);
+            //t.setDaemon(true);
 
             return t;
         });
 
         scheduledExecutorService.scheduleAtFixedRate(() -> {
-            System.out.println("www");
+            System.out.println("Thread currentName = " + Thread.currentThread().getName());
         }, 0, 1, TimeUnit.MICROSECONDS);
+
+        try {
+            scheduledExecutorService.awaitTermination(1000, TimeUnit.MICROSECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
