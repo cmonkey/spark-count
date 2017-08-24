@@ -1,6 +1,6 @@
 package com.sparkcount.typed
 
-abstract class A {
+abstract class A{
   val message: String
 }
 
@@ -46,8 +46,11 @@ object ClassCompositionWithMixins{
     println(s"d.message = $d.message")
     println(s"d.loudMessage = $d.loudMessage")
 
-    class Iter extends StringIterator(args(0)) with RichIterator 
+    val param = if(args.isEmpty) 10 else args(0)
+
+    class Iter extends StringIterator(param.toString) with RichIterator
     val iter = new Iter
     iter foreach println
+
   }
 }
