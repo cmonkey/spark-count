@@ -52,7 +52,7 @@ case object InvalidPduState extends  Enumeration{
 
 case class InvalidPDU(state: InvalidPduState.Value, term: Term) extends  PDU
 
-case class ClinetRequest[T](client: Id, request: RequestId, value: T) extends PDU
+case class ClientRequest[T](client: Id, request: RequestId, value: T) extends PDU
 
 case class ClientResponse[T](entry: Entry, leader: Id) extends PDU {
 
