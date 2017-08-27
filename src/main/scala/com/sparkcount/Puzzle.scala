@@ -1,4 +1,4 @@
-package com.sparkcount.Puzzle
+package com.sparkcount
 
 import java.util
 
