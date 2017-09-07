@@ -13,3 +13,4 @@ racket -t *.rkt
 ## DevOps Shell
 
    docker pull opszero/opshell
+   docker run -it opszero/opshell
