@@ -9,3 +9,7 @@ bin/spark-class org.apache.spark.deploy.Client kill spark://master:7077 driver-2
 cd src/main/rkt 
 
 racket -t *.rkt
+
+## DevOps Shell
+
+   docker pull opszero/opshell
