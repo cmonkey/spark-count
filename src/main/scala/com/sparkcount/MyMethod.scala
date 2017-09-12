@@ -1,12 +1,21 @@
 package com.sparkcount
 
-import scala.util.Try
+import scala.util.{Failure, Success, Try}
 import scala.util.control.Exception._
 
 object MyMethod extends App{
 
   def myMethod(s: String): Try[Int] = {
     Try(s.toInt)
+  }
+
+  def handleException = {
+    Try{
+      10 / 2
+    }match {
+      case Success(result) => println(result)
+      case Failure(exception) => exception.printStackTrace()
+    }
   }
 
   val m = myMethod("30")
@@ -17,6 +26,8 @@ object MyMethod extends App{
     case None => println("no")
     case _ => println(m.get)
   }
+
+  handleException
 
   allCatch.opt(3)
 
