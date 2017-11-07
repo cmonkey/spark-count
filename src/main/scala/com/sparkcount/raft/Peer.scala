@@ -1,6 +1,6 @@
 package com.sparkcount.raft
 
-import com.sparkcount.raft.Rfat._
+import com.sparkcount.raft.Raft._
 
 import scala.util.Random
 

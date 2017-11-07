@@ -1,6 +1,6 @@
 package com.sparkcount.raft
 
-import com.sparkcount.raft.Rfat.{Index, Term}
+import com.sparkcount.raft.Raft.{Index, Term}
 
 import scala.collection.mutable.ArrayBuffer
 

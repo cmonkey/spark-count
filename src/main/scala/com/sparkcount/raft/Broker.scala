@@ -2,7 +2,7 @@ package com.sparkcount.raft
 
 import java.util.concurrent.{ArrayBlockingQueue, BlockingQueue, Executors, TimeUnit}
 
-import com.sparkcount.raft.Rfat._
+import com.sparkcount.raft.Raft._
 
 trait Broker {
 

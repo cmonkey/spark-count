@@ -4,7 +4,7 @@ import java.util.logging.Logger
 
 import scala.concurrent.duration.TimeUnit
 
-object Rfat {
+object Raft {
 
   type Term = Long
   type Id = Long
