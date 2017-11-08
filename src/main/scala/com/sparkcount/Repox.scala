@@ -5,26 +5,31 @@ import org.apache.spark.sql.SparkSession
 /**
   * http://centaur.github.io/repox/
   */
-object Repox extends App{
+object Repox {
 
-  val ss = SparkSession.builder().master("local").appName("Repox").getOrCreate()
+  def main(args: Array[String]): Unit = {
 
-  val sc = ss.sparkContext
+    val ss = SparkSession.builder().master("local").appName("Repox").getOrCreate()
 
-  val filename = "amount.txt"
+    val sc = ss.sparkContext
 
-  val data = sc.textFile(filename)
+    val filename = args(0)
 
-  val opsData = data.map(d => (d.substring(0, 1), d.substring(1, d.length).toFloat))
+    print(s"input filename = ${filename}")
 
-  val addOps = opsData.filter(f => f._1 == "+")
+    val data = sc.textFile(filename)
 
-  val subOps = opsData.filter(f => f._1 == "-")
+    val opsData = data.map(d => (d.substring(0, 1), d.substring(1, d.length).toFloat))
 
-  val addAmount = addOps.reduceByKey(_ + _).map(f => f._2).collect().last
+    val addOps = opsData.filter(f => f._1 == "+")
 
-  val subAmount = subOps.reduceByKey(_ + _).map(f => f._2).collect().last
+    val subOps = opsData.filter(f => f._1 == "-")
 
-  print(s"捐款总额${addAmount}, 支出总额${subAmount}, 结余${addAmount - subAmount}")
+    val addAmount = addOps.reduceByKey(_ + _).map(f => f._2).collect().last
+
+    val subAmount = subOps.reduceByKey(_ + _).map(f => f._2).collect().last
+
+    print(s"捐款总额${addAmount}, 支出总额${subAmount}, 结余${addAmount - subAmount}")
+  }
 
 }
