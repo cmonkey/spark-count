@@ -18,15 +18,15 @@ object Repox {
 
     val data = sc.textFile(filename)
 
-    val opsData = data.map(d => (d.substring(0, 1), d.substring(1, d.length).toFloat))
+    val opsData = data.map(d => (d.substring(0, 1), d.substring(1, d.length).toFloat)).reduceByKey(_ + _).collect()
 
-    val addOps = opsData.filter(f => f._1 == "+")
+    val addOps = opsData.head
 
-    val subOps = opsData.filter(f => f._1 == "-")
+    val subOps = opsData.last
 
-    val addAmount = addOps.reduceByKey(_ + _).map(f => f._2).collect().last
+    val addAmount = addOps._2
 
-    val subAmount = subOps.reduceByKey(_ + _).map(f => f._2).collect().last
+    val subAmount = subOps._2
 
     print(s"捐款总额${addAmount}, 支出总额${subAmount}, 结余${addAmount - subAmount}")
   }
