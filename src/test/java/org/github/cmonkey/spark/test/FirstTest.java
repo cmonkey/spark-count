@@ -1,4 +1,4 @@
-package com.sparkcount.test;
+package org.github.cmonkey.spark.test;
 
 /**
  * Created by cmonkey on 1/5/17.

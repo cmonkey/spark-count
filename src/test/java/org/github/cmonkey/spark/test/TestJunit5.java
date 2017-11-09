@@ -1,4 +1,4 @@
-package com.sparkcount.test;
+package org.github.cmonkey.spark.test;
 
 import org.junit.jupiter.api.*;
 
