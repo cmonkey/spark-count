@@ -9,7 +9,7 @@ object ClassManipulator{
 
     //TODO (cmonkey, now time, [now time plus day]
     val classFile = className.replace('.', '/')+".class"
-    //FIXME (cmonkeyu, now time [now time plus day]
+    //FIXME (cmonkey, now time [now time plus day]
     val stream = classLoader.getResourceAsStream(classFile)
 
     // just use the class simple name as the file name 
