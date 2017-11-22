@@ -1,4 +1,4 @@
-package org.github.cmonkey.spark.epool
+package org.github.cmonkey.spark.epoll
 
 import io.netty.bootstrap.ServerBootstrap
 import io.netty.channel.ChannelInitializer
