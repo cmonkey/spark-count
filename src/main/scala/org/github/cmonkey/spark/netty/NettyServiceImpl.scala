@@ -34,9 +34,9 @@ class NettyServiceImpl extends NettyService {
 
       serverBootstrap.group(bossGroup, workerGroup)
         .channel(classOf[EpollServerSocketChannel])
-        .option(EpollChannelOption.TCP_CORK,true)
-        .option(ChannelOption.SO_KEEPALIVE, true)
-        .option(ChannelOption.SO_BACKLOG, 100)
+        //.option(EpollChannelOption.TCP_CORK,true)
+        //.option(ChannelOption.SO_KEEPALIVE, true)
+        //.option(ChannelOption.SO_BACKLOG, 100)
         .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
         .childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
         .handler(new LoggingHandler(LogLevel.INFO))
@@ -48,13 +48,13 @@ class NettyServiceImpl extends NettyService {
 
       serverBootstrap.group(bossGroup, workerGroup)
         .channel(classOf[NioServerSocketChannel])
-        .option(ChannelOption.SO_BACKLOG, 100)
-        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 100)
-        .option(ChannelOption.SO_KEEPALIVE, true)
-        .option(ChannelOption.TCP_NODELAY, true)
+        //.option(ChannelOption.SO_BACKLOG, 100)
+        //.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 100)
+        //.option(ChannelOption.SO_KEEPALIVE, true)
+        //.option(ChannelOption.TCP_NODELAY, true)
         .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
         .childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
-        .handler(new LoggingHandler()(LogLevel.INFO))
+        .handler(new LoggingHandler(LogLevel.INFO))
         //.childHandler()
     }
   }
