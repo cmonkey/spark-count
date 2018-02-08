@@ -6,11 +6,18 @@ object IndexingJsonLogs{
 
   def main(args: Array[String]){
 
-    val connInfoMap = Map("url" -> "jdbc:mysql://10.204.43.88:3306/demo",
-      "driver" -> "com.mysql.jdbc.Driver",
-      "dbtable" -> "us2004_companies",
-      "user" -> "root",
-      "password" -> "root"
+    val domain = ""
+    val jdbcUrl = s"jdbc:mysql://${domain}:3306/insurance?useSSL=false"
+    val driver = "com.mysql.cj.jdbc.Driver"
+    val dbtable = "customer"
+    val dbUserName = "root"
+    val dbPwd = ""
+
+    val connInfoMap = Map("url" -> jdbcUrl,
+      "driver" -> driver,
+      "dbtable" -> dbtable,
+      "user" -> dbUserName,
+      "password" -> dbPwd
     )
 
     val session = SparkSession.builder().appName("Indexing Json").master("local").getOrCreate()
@@ -19,10 +26,10 @@ object IndexingJsonLogs{
 
     df.printSchema()
 
-    df.createTempView("comp")
+    df.createTempView("customer")
 
-    println(session.sql("select * from comp").count())
-    session.sql("select id, url, objects from comp").createTempView("temp")
+    println(session.sql("select * from customer").count())
+    session.sql("select * from customer").createTempView("temp")
 
     val tempCount = session.sql("select * from temp").count()
     println(tempCount)
@@ -38,7 +45,7 @@ object IndexingJsonLogs{
 
     df.cache()
     println(catalog.isCached("temp"))
-    println(catalog.isCached("comp"))
+    println(catalog.isCached("customer"))
 
     catalog.listFunctions().select("name", "description", "className", "isTemporary").show()
 
