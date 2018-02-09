@@ -6,7 +6,7 @@ public class DebuggableMain implements Debuggable{
     String b = "a";
 
     public static void main(String[] args) {
-        DebuggableMain main = new DebuggableMain();
+        Debuggable main = new DebuggableMain();
         System.out.println(main.debug());
     }
 }
