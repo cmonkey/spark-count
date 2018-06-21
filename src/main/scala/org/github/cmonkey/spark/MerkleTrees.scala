@@ -13,7 +13,7 @@ class MerkleTrees(txList: util.List[String], root: String) {
 
   }
 
-  def getNewTxList(strings: util.ArrayList[String]):: util.List[String] = {
+  def getNewTxList(strings: util.ArrayList[String]): util.List[String] = {
     val newTxList = new util.ArrayList[String]()
 
     val index = 0
