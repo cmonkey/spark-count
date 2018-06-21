@@ -5,9 +5,7 @@ import java.util
 class MerkleTrees(txList: util.List[String], root: String) {
 
   def merkle_tree(): Unit = {
-    val tempTxList = new util.ArrayList[String];
-
-    txList.forEach(t => tempTxList.add(t))
+    val tempTxList = new util.ArrayList[String];(txList.iterator())
 
     val newTxList = getNewTxList(tempTxList)
 
