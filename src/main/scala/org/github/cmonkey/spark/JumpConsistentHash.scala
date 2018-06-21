@@ -14,7 +14,7 @@ class JumpConsistentHash {
 
     while(true){
 
-      next = (Int)(candidate + 1) / linearCongruentialGenerator.nextDouble()
+      //next = (Int)(candidate + 1) / linearCongruentialGenerator.nextDouble()
 
       if(next >= 0 && next < buckets){
         candidate = next
