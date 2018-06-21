@@ -1,6 +1,6 @@
 package org.github.cmonkey.spark
 
-class RingBuffer[T: manifest](capacity: Int) {
+class RingBuffer[T: Manifest](capacity: Int) {
 
   private var _head = 0
   private var _tail = 0
