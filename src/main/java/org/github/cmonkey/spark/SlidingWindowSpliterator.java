@@ -1,10 +1,35 @@
 package org.github.cmonkey.spark;
 
-import java.util.Spliterator;
+import org.spark_project.jetty.util.ArrayQueue;
+
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public class SlidingWindowSpliterator<T> implements Spliterator<Stream<T>> {
+    private final Queue<T> queue;
+    private final Iterator<T> sourceIterator;
+    private final int windowSize;
+    private final int size;
+
+    private SlidingWindowSpliterator(Collection<T> source, int windowSize){
+
+        this.queue = new ArrayQueue<>(source);
+        this.sourceIterator = Objects.requireNonNull(source).iterator();
+        this.windowSize = windowSize;
+        this.size = calculateSize(source, windowSize);
+    }
+
+    private int calculateSize(Collection<T> source, int windowSize) {
+        return source.size() < windowSize ? 0 : source.size() - windowSize + 1;
+    }
+
+    static <T> Stream<Stream<T>> windowed(Collection<T> stream, int windowSize){
+
+        return StreamSupport.stream(new SlidingWindowSpliterator<>(stream, windowSize), false);
+    }
+
     @Override
     public boolean tryAdvance(Consumer<? super Stream<T>> action) {
         return false;
@@ -17,11 +42,11 @@ public class SlidingWindowSpliterator<T> implements Spliterator<Stream<T>> {
 
     @Override
     public long estimateSize() {
-        return 0;
+        return size;
     }
 
     @Override
     public int characteristics() {
-        return 0;
+        return ORDERED | NONNULL | SIZED;
     }
 }
