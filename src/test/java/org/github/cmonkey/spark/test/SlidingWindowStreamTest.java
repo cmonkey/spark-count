@@ -47,4 +47,15 @@ public class SlidingWindowStreamTest {
 
         assertThat(result).isEmpty();
     }
+
+    @Test
+    public void shouldApplyZeroSlidingWindow(){
+        List<Integer> source = Lists.newArrayList(1,2,3,4);
+
+        List<List<Integer>> result = windowed(source, 0)
+            .map(s -> s.collect(Collectors.toList()))
+            .collect(Collectors.toList());
+
+        assertThat(result).isEmpty();
+    }
 }
