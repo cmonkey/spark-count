@@ -3,6 +3,7 @@ package org.github.cmonkey.spark.test;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,5 +35,16 @@ public class SlidingWindowStreamTest {
 
         assertThat(result).isEmpty();
 
+    }
+
+    @Test
+    public void shouldApplySlidingWindowToEmptyStream(){
+        List<Integer> source = Collections.emptyList();
+
+        List<List<Integer>> result = windowed(source, 3)
+            .map(s -> s.collect(Collectors.toList()))
+            .collect(Collectors.toList());
+
+        assertThat(result).isEmpty();
     }
 }
