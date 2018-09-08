@@ -23,4 +23,16 @@ public class SlidingWindowStreamTest {
                 Lists.newArrayList(1,2,3),
                 Lists.newArrayList(2,3,4));
     }
+
+    @Test
+    public void sholudApplySlidingWindowToStreamSmallerThanWindow(){
+        List<Integer> source = Lists.newArrayList(1, 2);
+
+        List<List<Integer>> result = windowed(source, 3)
+            .map(s -> s.collect(Collectors.toList()))
+            .collect(Collectors.toList());
+
+        assertThat(result).isEmpty();
+
+    }
 }
