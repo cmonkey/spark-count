@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.github.cmonkey.spark.SlidingWindowSpliterator.windowed;
@@ -57,5 +58,19 @@ public class SlidingWindowStreamTest {
             .collect(Collectors.toList());
 
         assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void shouldOnNotLateBindToInternalBuffer(){
+        List<Integer> source = Lists.newArrayList(1,2,3,4);
+
+        List<Stream<Integer>> result = windowed(source, 2)
+            .collect(Collectors.toList());
+
+        Stream<Integer> s3 = result.get(2);
+
+        assertThat(s3.collect(Collectors.toList())).containsExactly(3, 4);
+
+
     }
 }
