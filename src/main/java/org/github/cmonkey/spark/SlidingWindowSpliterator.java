@@ -25,7 +25,7 @@ public class SlidingWindowSpliterator<T> implements Spliterator<Stream<T>> {
         return source.size() < windowSize ? 0 : source.size() - windowSize + 1;
     }
 
-    static <T> Stream<Stream<T>> windowed(Collection<T> stream, int windowSize){
+    public static <T> Stream<Stream<T>> windowed(Collection<T> stream, int windowSize){
 
         return StreamSupport.stream(new SlidingWindowSpliterator<>(stream, windowSize), false);
     }
