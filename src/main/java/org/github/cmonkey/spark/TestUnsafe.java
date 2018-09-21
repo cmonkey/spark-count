@@ -2,6 +2,8 @@ package org.github.cmonkey.spark;
 
 import sun.misc.Unsafe;
 
+import java.util.Arrays;
+
 public class TestUnsafe{
 
     public static void main(String[] args) {
@@ -26,7 +28,7 @@ public class TestUnsafe{
     public static byte[] serBytes(int bufLen) {
         byte[] buf = new byte[bufLen];
         getUnsafe().putInt(buf, BYTE_ARRAY_BASE_OFFSET + 1L, buf.length);
-        System.err.println("ref " + buf);
+        System.err.println("ref " + Arrays.toString(buf));
         return buf;
     }
 
