@@ -2,7 +2,7 @@ package org.github.cmonkey.spark.disruptor
 
 import java.util.concurrent.{ArrayBlockingQueue, RejectedExecutionHandler, ThreadPoolExecutor, TimeUnit}
 
-object JavaArrayBlockingQueue extends App{
+object JavaArrayBlockingQueue extends App {
 
   val CAPACITY = 10
 
@@ -17,5 +17,12 @@ object JavaArrayBlockingQueue extends App{
       }
     }
   )
+
+
+  for (i <- 0 until 1000) {
+    service.submit(new Runnable {
+      override def run(): Unit = println(s"task ${Thread.currentThread().getId}")
+    })
+  }
 
 }
