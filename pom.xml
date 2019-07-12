@@ -18,13 +18,14 @@
         <hadoop.version>2.7.3</hadoop.version>
         <junit.platform.version>1.0.1</junit.platform.version>
         <junit.jupiter.version>5.4.2</junit.jupiter.version>
-	</properties>
+        <lombok.version>1.18.8</lombok.version>
+    </properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.16.16</version>
+			<version>${lombok.version}</version>
 		</dependency>
 
         <dependency>
