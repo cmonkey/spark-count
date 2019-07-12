@@ -14,29 +14,40 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-        <scala.version>2.12.7</scala.version>
-        <hadoop.version>2.7.0</hadoop.version>
+        <scala.version>2.12.8</scala.version>
+        <hadoop.version>2.7.3</hadoop.version>
         <junit.platform.version>1.0.1</junit.platform.version>
-        <junit.jupiter.version>5.0.1</junit.jupiter.version>
-	</properties>
+        <junit.jupiter.version>5.4.2</junit.jupiter.version>
+        <lombok.version>1.18.8</lombok.version>
+        <fastjson.version>1.2.58</fastjson.version>
+        <druid.version>1.1.16</druid.version>
+        <spark.version>2.4.3</spark.version>
+        <akka.version>2.5.23</akka.version>
+        <mysql-connector.version>8.0.16</mysql-connector.version>
+        <scala-test.version>3.0.8</scala-test.version>
+        <alchim31.scala.plugin>4.0.2</alchim31.scala.plugin>
+        <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
+        <delta.version>0.2.0</delta.version>
+
+    </properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.16.16</version>
+			<version>${lombok.version}</version>
 		</dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.49</version>
+            <version>${fastjson.version}</version>
         </dependency>
 		<!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
-			<version>1.0.29</version>
+            <version>${druid.version}</version>
 		</dependency>
        <dependency>
             <groupId>org.scala-lang</groupId>
@@ -51,18 +62,18 @@
 
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.11</artifactId>
-            <version>2.1.1</version>
+            <artifactId>spark-core_2.12</artifactId>
+            <version>${spark.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_2.11</artifactId>
-            <version>2.1.1</version>
-        </dependency><!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor_2.11 -->
+            <artifactId>spark-sql_2.12</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-actor_2.11</artifactId>
-            <version>2.5.16</version>
+            <artifactId>akka-actor_2.13</artifactId>
+            <version>${akka.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
@@ -84,13 +95,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.6</version>
+            <version>${mysql-connector.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest -->
         <dependency>
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_2.12</artifactId>
-            <version>3.0.5</version>
+            <version>${scala-test.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -104,6 +114,11 @@
             <artifactId>disruptor</artifactId>
             <version>3.3.7</version>
         </dependency>
+        <dependency>
+            <groupId>io.delta</groupId>
+            <artifactId>delta-core_2.11</artifactId>
+            <version>${delta.version}</version>
+        </dependency>
     </dependencies>
 
 	<build>
@@ -111,7 +126,7 @@
 			<plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>3.2.2</version>
+                <version>${alchim31.scala.plugin}</version>
                 <executions>
                     <execution>
                         <id>compile-scala</id>
@@ -146,7 +161,7 @@
             <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+                <version>${maven.compiler.plugin}</version>
 				<configuration>
                     <compilerId>javac-with-errorprone</compilerId>
                     <forceJavacCompilerUse>true</forceJavacCompilerUse>
