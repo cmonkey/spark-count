@@ -26,6 +26,8 @@
         <mysql-connector.version>8.0.16</mysql-connector.version>
         <scala-test.version>3.0.8</scala-test.version>
         <alchim31.scala.plugin>4.0.2</alchim31.scala.plugin>
+        <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
+
     </properties>
 
 	<dependencies>
@@ -153,7 +155,7 @@
             <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+                <version>${maven.compile.plugin}</version>
 				<configuration>
                     <compilerId>javac-with-errorprone</compilerId>
                     <forceJavacCompilerUse>true</forceJavacCompilerUse>
