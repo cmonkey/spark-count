@@ -19,6 +19,8 @@
         <junit.platform.version>1.0.1</junit.platform.version>
         <junit.jupiter.version>5.4.2</junit.jupiter.version>
         <lombok.version>1.18.8</lombok.version>
+        <fastjson.version>1.2.58</fastjson.version>
+
     </properties>
 
 	<dependencies>
@@ -31,7 +33,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.49</version>
+            <version>${fastjson.version}</version>
         </dependency>
 		<!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
 		<dependency>
