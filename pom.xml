@@ -23,7 +23,8 @@
         <druid.version>1.1.16</druid.version>
         <spark.version>2.4.3</spark.version>
         <akka.version>2.5.23</akka.version>
-
+        <mysql-connector.version>8.0.16</mysql-connector.version>
+        <scala-test.version>3.0.8</scala-test.version>
     </properties>
 
 	<dependencies>
@@ -90,13 +91,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.6</version>
+            <version>${mysql-connector.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest -->
         <dependency>
             <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_2.12</artifactId>
-            <version>3.0.5</version>
+            <artifactId>scalatest_2.13</artifactId>
+            <version>${scala-test.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
