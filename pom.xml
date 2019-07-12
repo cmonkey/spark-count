@@ -25,6 +25,7 @@
         <akka.version>2.5.23</akka.version>
         <mysql-connector.version>8.0.16</mysql-connector.version>
         <scala-test.version>3.0.8</scala-test.version>
+        <alchim31.scala.plugin>4.0.2</alchim31.scala.plugin>
     </properties>
 
 	<dependencies>
@@ -117,7 +118,7 @@
 			<plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>3.2.2</version>
+                <version>${alchim31.scala.plugin}</version>
                 <executions>
                     <execution>
                         <id>compile-scala</id>
