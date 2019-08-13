@@ -8,6 +8,9 @@ trait Ref[T] {
   def transformAndGet(cb: T => T): T
 
   def getAndTransform(cb: T => T): T
+
+  def incrementAndGet(implicit num: Numeric[T]) =
+    transformAndGet(x => num.plus(x, num.one))
 }
 
 object Ref{
