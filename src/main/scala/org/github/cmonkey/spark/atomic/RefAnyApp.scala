@@ -1,5 +1,5 @@
 package org.github.cmonkey.spark.atomic
 
-class RefAnyApp {
+object RefAnyApp extends App{
 
 }
