@@ -72,7 +72,7 @@
         </dependency>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-actor_2.13</artifactId>
+            <artifactId>akka-actor_2.12</artifactId>
             <version>${akka.version}</version>
         </dependency>
         <dependency>
