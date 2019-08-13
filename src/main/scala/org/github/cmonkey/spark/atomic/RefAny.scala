@@ -2,6 +2,8 @@ package org.github.cmonkey.spark.atomic
 
 import java.util.concurrent.atomic.AtomicReference
 
+import scala.annotation.tailrec
+
 class RefAny[T](initial: T) extends Ref[T]{
 
   private[this] val instance = new AtomicReference(initial)
@@ -12,5 +14,15 @@ class RefAny[T](initial: T) extends Ref[T]{
 
   override def compareAndSet(expect: T, update: T): Boolean = instance.compareAndSet(expect, update)
 
-  override def transformAndGet(cb: T => T): T = ???
+  @tailrec
+  final override def transformAndGet(cb: T => T): T = {
+    val oldValue = get
+    val newValue = cb(oldValue)
+
+    if(!compareAndSet(oldValue, newValue)){
+      transformAndGet(cb)
+    }else{
+      newValue
+    }
+  }
 }
