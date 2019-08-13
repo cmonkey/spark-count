@@ -25,4 +25,16 @@ class RefAny[T](initial: T) extends Ref[T]{
       newValue
     }
   }
+
+  @tailrec
+  final override def getAndTransform(cb: T => T): T = {
+    val oldValue = get
+    val update = cb(oldValue)
+
+    if(!compareAndSet(oldValue, update)){
+      getAndTransform(cb)
+    }else{
+      oldValue
+    }
+  }
 }
