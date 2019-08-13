@@ -1,5 +1,4 @@
 package org.github.cmonkey.spark.actor
-import org.github.cmonkey.spark.actor.RandomService
 import akka.actor.Actor
 
 object FutureActor{
