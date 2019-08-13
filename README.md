@@ -1,4 +1,4 @@
-## Spark Count 
+## Spark Count [![Build Status](https://travis-ci.org/cmonkey/spark-count.svg?branch=master)](https://travis-ci.org/cmonkey/spark-count)
 
 ### Stopping a Running Spark Application  
 
