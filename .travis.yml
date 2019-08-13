@@ -1,0 +1,18 @@
+language: java
+sudo: false
+
+dist: xenial
+
+cache:
+  directories:
+  - $HOME/.m2
+
+jdk:
+- openjdk8
+
+install:
+  - mvn clean install -DskipTests=true -B -V
+
+script:
+  - mvn -q test
+  - sh ./check_format.sh

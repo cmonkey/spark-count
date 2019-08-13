@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-        <scala.version>2.12.8</scala.version>
+        <scala.version>2.12.9</scala.version>
         <hadoop.version>2.7.3</hadoop.version>
         <junit.platform.version>1.0.1</junit.platform.version>
         <junit.jupiter.version>5.4.2</junit.jupiter.version>
@@ -25,7 +25,7 @@
         <akka.version>2.5.23</akka.version>
         <mysql-connector.version>8.0.16</mysql-connector.version>
         <scala-test.version>3.0.8</scala-test.version>
-        <alchim31.scala.plugin>4.0.2</alchim31.scala.plugin>
+        <alchim31.scala.plugin>4.1.1</alchim31.scala.plugin>
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
         <delta.version>0.2.0</delta.version>
 
@@ -72,7 +72,7 @@
         </dependency>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-actor_2.13</artifactId>
+            <artifactId>akka-actor_2.12</artifactId>
             <version>${akka.version}</version>
         </dependency>
         <dependency>
