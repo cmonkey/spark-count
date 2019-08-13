@@ -13,4 +13,9 @@ object RefAnyApp extends App{
   val transformAndGetQueue =  refQueue.transformAndGet(q => q.enqueue("Alex"))
 
   println(s"transformAndGetQueue = ${transformAndGetQueue}")
+
+  val refNumeric = new RefAny(BigInt(1))
+
+  println(s"incrementAndGet = ${refNumeric.incrementAndGet}")
+
 }
