@@ -6,6 +6,8 @@ trait Ref[T] {
   def compareAndSet(expect: T, update: T): Boolean
 
   def transformAndGet(cb: T => T): T
+
+  def getAndTransform(cb: T => T): T
 }
 
 object Ref{
