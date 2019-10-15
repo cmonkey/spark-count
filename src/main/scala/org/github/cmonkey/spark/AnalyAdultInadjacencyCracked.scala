@@ -1,6 +1,8 @@
 package org.github.cmonkey.spark
 
-import org.apache.spark.sql.SparkSession
+import java.util.concurrent.TimeUnit
+
+import org.apache.spark.sql.{Encoders, SparkSession}
 
 object AnalyAdultInadjacencyCracked {
 
@@ -9,10 +11,25 @@ object AnalyAdultInadjacencyCracked {
       .master("local[*]")
       .getOrCreate()
 
-    val file = "resources/firefox-adult-inadjacency-cracked.txt"
+    val file = "src/main/resources/firefox-adult-inadjacency-cracked.txt"
 
     val lines = spark.read.textFile(file)
 
-    lines.show(100)
+    val dataLines = lines.filter(line => !line.startsWith("#"))
+
+    implicit def encoder = Encoders.STRING
+    val lastLines = dataLines.map(_.split(":").last).map(line => {
+      var r = line
+      if(line.endsWith("DEFUNCT")){
+        r = line.replaceAll("DEFUNCT", "")
+      }
+      r
+     })
+
+    lastLines.count()
+
+    lastLines.foreach(line => println(line))
+
+    TimeUnit.SECONDS.sleep(10)
   }
 }
