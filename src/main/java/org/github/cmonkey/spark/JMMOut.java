@@ -18,7 +18,7 @@ public class JMMOut {
         new MyTask(jmmOut).start();
     }
 
-    class MyTask extends Thread{
+    static class MyTask extends Thread{
 
         private WeakReference<JMMOut> reference;
 
