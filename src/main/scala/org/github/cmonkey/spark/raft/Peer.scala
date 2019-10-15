@@ -37,7 +37,7 @@ class LeaderState[T](peer: Peer[T]){
   }
 
   def handleMissing(id: Id, index: Index): Unit = {
-    if (matchIndex.get(id).get >= index){
+    if (matchIndex(id) >= index){
       val previous: Entry = peer.getEntry(index - 1).id
       peer.send(peer.addressedPDU(AppendEntries(peer.currentTerm, peer.id, previous, Seq(), peer.commitIndex), id))
     }
