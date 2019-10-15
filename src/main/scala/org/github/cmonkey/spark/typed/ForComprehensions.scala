@@ -1,5 +1,5 @@
 package org.github.cmonkey.spark.typed
-case class UserBase(val name: String, val age : Int)
+case class UserBase(name: String, age : Int)
 
 
 object ForComprehensions{
