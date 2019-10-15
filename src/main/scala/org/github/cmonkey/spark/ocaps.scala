@@ -29,9 +29,7 @@ object Ocaps extends App{
   }
 
   val bakery = new Bakery(){
-    def buy(): Cake = new Cake(){
-      def eat() = ()
-    }
+    def buy(): Cake = () => ()
   }
 
   val you = new Person(bakery)
@@ -44,13 +42,11 @@ object Ocaps extends App{
         def eat() = ()
       }
 
-      new Cake(){
-        def eat() = {
-          if(latch.getAndDecrement == 1){
-            realCake.eat()
-          }else{
-            throw new RuntimeException("You have already eaten this cake!")
-          }
+      () => {
+        if (latch.getAndDecrement == 1) {
+          realCake.eat()
+        } else {
+          throw new RuntimeException("You have already eaten this cake!")
         }
       }
     }
