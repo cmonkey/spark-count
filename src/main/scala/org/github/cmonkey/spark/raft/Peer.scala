@@ -111,7 +111,7 @@ abstract  class Peer[T](val id: Id,
 
       received match {
         case _ if target != id => send(AddressedPDU(id, source, InvalidPDU(InvalidPduState.INVALID_ID, currentTerm)))
-        case _ if ! config.peers.exists(_ == source) => send(AddressedPDU(id, source, InvalidPDU(InvalidPduState.INVALID_SOURCE, currentTerm)))
+        case _ if ! config.peers.contains(source) => send(AddressedPDU(id, source, InvalidPDU(InvalidPduState.INVALID_SOURCE, currentTerm)))
         case _ => pdu match {
 
           case ae: AppendEntries[T] => handleAppend(source, ae)
