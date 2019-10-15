@@ -26,13 +26,7 @@ public class SoReusePortHack {
             methodSetIntOption0.invoke(null, fd, false, '\uffff',
                     SO_REUSEPORT, 1);
             Class<?> returnType = methodSetIntOption0.getReturnType();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (NoSuchFieldException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
