@@ -27,7 +27,7 @@
         <scala-test.version>3.0.8</scala-test.version>
         <alchim31.scala.plugin>4.1.1</alchim31.scala.plugin>
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
-        <delta.version>0.2.0</delta.version>
+        <delta.version>0.4.0</delta.version>
 
     </properties>
 
@@ -114,11 +114,13 @@
             <artifactId>disruptor</artifactId>
             <version>3.3.7</version>
         </dependency>
-        <dependency>
-            <groupId>io.delta</groupId>
-            <artifactId>delta-core_2.11</artifactId>
-            <version>${delta.version}</version>
-        </dependency>
+        <!--
+           -<dependency>
+           -    <groupId>io.delta</groupId>
+           -    <artifactId>delta-core_2.11</artifactId>
+           -    <version>${delta.version}</version>
+           -</dependency>
+           -->
     </dependencies>
 
 	<build>
