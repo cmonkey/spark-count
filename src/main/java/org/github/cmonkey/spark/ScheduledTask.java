@@ -18,9 +18,7 @@ public class ScheduledTask {
             return t;
         });
 
-        scheduledExecutorService.scheduleAtFixedRate(() -> {
-            System.out.println("Thread currentName = " + Thread.currentThread().getName());
-        }, 0, 1, TimeUnit.MICROSECONDS);
+        scheduledExecutorService.scheduleAtFixedRate(() -> System.out.println("Thread currentName = " + Thread.currentThread().getName()), 0, 1, TimeUnit.MICROSECONDS);
 
         try {
             scheduledExecutorService.awaitTermination(1000, TimeUnit.MICROSECONDS);
