@@ -23,7 +23,7 @@ public class JMMOut {
         private WeakReference<JMMOut> reference;
 
         public MyTask(JMMOut jmmOut){
-            reference = new WeakReference<JMMOut>(jmmOut);
+            reference = new WeakReference<>(jmmOut);
         }
 
         private JMMOut doSome(){
