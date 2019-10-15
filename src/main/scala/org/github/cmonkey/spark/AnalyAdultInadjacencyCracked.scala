@@ -28,8 +28,6 @@ object AnalyAdultInadjacencyCracked {
 
     lastLines.count()
 
-    lastLines.foreach(line => println(line))
-
-    TimeUnit.SECONDS.sleep(10)
+    lastLines.write.text("src/main/resources/cracked")
   }
 }
