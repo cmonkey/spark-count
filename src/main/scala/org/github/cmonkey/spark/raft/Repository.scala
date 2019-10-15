@@ -14,7 +14,7 @@ case class LogEntry[T](id: Entry, value: T)
 
 trait LogRepository[T]{
   def getEntries(start: Index, end: Index): Seq[LogEntry[T]]
-  def getEntry(entryKey: Index): LogEntry[T] = getEntries(entryKey, entryKey+1)(0)
+  def getEntry(entryKey: Index): LogEntry[T] = getEntries(entryKey, entryKey + 1).head
 
   def containsEntry(entryKey: Entry): Boolean
 

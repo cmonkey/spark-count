@@ -7,9 +7,7 @@ object HelloWindow {
     val frame = new JFrame("Hello World Window")
 
     val button = new JButton("Click Me")
-    button.addActionListener(new ActionListener{
-      def actionPerformed(e: ActionEvent) = button.setText("You clicked the button!")
-    })
+    button.addActionListener((e: ActionEvent) => button.setText("You clicked the button!"))
     button.setPreferredSize(new java.awt.Dimension(200, 100))
     frame.getContentPane.add(button)
     frame.pack()

@@ -46,11 +46,9 @@ class TimeWheel extends AbstractScheduler{
       }
     }).asInstanceOf[ThreadPoolExecutor]
 
-    secondDriver = Executors.newScheduledThreadPool(1, new ThreadFactory {
-      override def newThread(r: Runnable): Thread ={
-        val t = new Thread(new ThreadGroup("TimeWheel"), r, "secondDriver")
-        t
-      }
+    secondDriver = Executors.newScheduledThreadPool(1, (r: Runnable) => {
+      val t = new Thread(new ThreadGroup("TimeWheel"), r, "secondDriver")
+      t
     })
 
     this
@@ -68,18 +66,14 @@ class TimeWheel extends AbstractScheduler{
       timeSecondDriver.scheduleAtFixedRate(new TimeDriverThread(secondDriver, new WorkProducer(1, dialInSeconds.get(1))), 0, 1000, TimeUnit.MILLISECONDS)
       isRunning = true
 
-      workProducerThread = Executors.newSingleThreadExecutor(new ThreadFactory {
-        override def newThread(r: Runnable): Thread = {
-          val t = new Thread(new ThreadGroup("TimeWheel"), r, "workProducer")
-          t
-        }
+      workProducerThread = Executors.newSingleThreadExecutor((r: Runnable) => {
+        val t = new Thread(new ThreadGroup("TimeWheel"), r, "workProducer")
+        t
       })
 
-      workConsumerThread = Executors.newSingleThreadExecutor(new ThreadFactory {
-        override def newThread(r: Runnable): Thread = {
-          val t = new Thread(new ThreadGroup("TimeWheel"), r, "workConsumer")
-          t
-        }
+      workConsumerThread = Executors.newSingleThreadExecutor((r: Runnable) => {
+        val t = new Thread(new ThreadGroup("TimeWheel"), r, "workConsumer")
+        t
       })
     }
 

@@ -8,13 +8,10 @@ object TimesTwo {
 
     def timesTwo(n: Int): Async[Int] =
       onFinish => {
-        global.execute(new Runnable {
-          def run(): Unit = {
+        global.execute(() => {
 
-            val result = n * 2
-            onFinish(result)
-          }
-
+          val result = n * 2
+          onFinish(result)
         })
     }
 

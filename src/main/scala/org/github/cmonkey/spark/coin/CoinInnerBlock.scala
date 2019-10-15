@@ -14,7 +14,7 @@ case class CoinInnerBlock(index: Int,
 
     var temp:String = null
 
-    for(i <- 0 until bytes.length){
+    for(i <- bytes.indices){
 
       temp = Integer.toHexString(bytes(i) & 0xFF)
 

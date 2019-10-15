@@ -37,7 +37,7 @@ class LeaderState[T](peer: Peer[T]){
   }
 
   def handleMissing(id: Id, index: Index): Unit = {
-    if (matchIndex.get(id).get >= index){
+    if (matchIndex(id) >= index){
       val previous: Entry = peer.getEntry(index - 1).id
       peer.send(peer.addressedPDU(AppendEntries(peer.currentTerm, peer.id, previous, Seq(), peer.commitIndex), id))
     }
@@ -111,7 +111,7 @@ abstract  class Peer[T](val id: Id,
 
       received match {
         case _ if target != id => send(AddressedPDU(id, source, InvalidPDU(InvalidPduState.INVALID_ID, currentTerm)))
-        case _ if ! config.peers.exists(_ == source) => send(AddressedPDU(id, source, InvalidPDU(InvalidPduState.INVALID_SOURCE, currentTerm)))
+        case _ if ! config.peers.contains(source) => send(AddressedPDU(id, source, InvalidPDU(InvalidPduState.INVALID_SOURCE, currentTerm)))
         case _ => pdu match {
 
           case ae: AppendEntries[T] => handleAppend(source, ae)

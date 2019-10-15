@@ -37,12 +37,10 @@ public class TestUnsafe{
 			java.lang.reflect.Field singletonInstanceField = Unsafe.class.getDeclaredField("theUnsafe");
 			singletonInstanceField.setAccessible(true);
 			return (Unsafe) singletonInstanceField.get(null);
-		} catch (NoSuchFieldException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
+		} catch (NoSuchFieldException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
-		return null;
+        return null;
 	}
 
 
