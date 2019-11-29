@@ -4,7 +4,7 @@ object MethodChainHints{
   val words = Seq("a", "sequence", "of", "words")
 
   words
-  .vide
+  .view
   .map(_.length)
   .filter(_ > 3)
   .toSeq
