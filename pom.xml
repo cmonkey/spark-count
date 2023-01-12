@@ -71,6 +71,11 @@
             <version>${spark.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_2.13</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-actor_2.12</artifactId>
             <version>${akka.version}</version>
