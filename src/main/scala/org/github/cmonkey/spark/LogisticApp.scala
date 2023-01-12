@@ -2,6 +2,7 @@ package org.github.cmonkey.spark
 
 import org.apache.spark.ml.classification.LogisticRegression
 import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.ml.linalg.Vector
 import org.apache.spark.ml.param.ParamMap
 import org.apache.spark.sql.{Row, SparkSession}
 
@@ -47,7 +48,7 @@ object LogisticApp {
     model2.transform(test)
       .select("features", "label", "myProbability", "prediction")
       .collect()
-      .foreach { case Row(features: Vector[Double], label: Double, prob: Vector[Double], prediction: Double) =>
+      .foreach { case Row(features: Vector, label: Double, prob: Vector, prediction: Double) =>
         println(s"($features, $label) -> prob=$prob, prediction=$prediction")
       }
   }
