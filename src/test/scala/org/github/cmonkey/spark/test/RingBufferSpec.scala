@@ -1,13 +1,14 @@
 package org.github.cmonkey.spark.test
 
 import org.github.cmonkey.spark.RingBuffer
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.must.Matchers
+import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
 
-class RingBufferSpec extends FunSpec with Matchers {
+class RingBufferSpec extends AnyFlatSpec with Matchers {
 
-  describe(" A RingBuffer"){
     val ringBuffer = new RingBuffer[Int](3)
-    it("should have a fixed-size"){
+    it should "should have a fixed-size" in {
       var size = ringBuffer.enqueue(1)
       size should be (1)
       size = ringBuffer.enqueue(2)
@@ -17,7 +18,7 @@ class RingBufferSpec extends FunSpec with Matchers {
       size = ringBuffer.enqueue(4)
       size should be (3)
     }
-    it("should be a circular queue"){
+    it should  "should be a circular queue" in {
 
       var elem = ringBuffer.dequeue
       elem should be (2)
@@ -28,6 +29,4 @@ class RingBufferSpec extends FunSpec with Matchers {
       elem = ringBuffer.dequeue
       elem should be (4)
     }
-  }
-
 }
