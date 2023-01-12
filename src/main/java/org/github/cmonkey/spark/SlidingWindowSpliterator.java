@@ -1,6 +1,6 @@
 package org.github.cmonkey.spark;
 
-import org.spark_project.jetty.util.ArrayQueue;
+
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -15,7 +15,7 @@ public class SlidingWindowSpliterator<T> implements Spliterator<Stream<T>> {
 
     private SlidingWindowSpliterator(Collection<T> source, int windowSize){
 
-        this.buffer = new ArrayQueue<>(source);
+        this.buffer = null;
         this.sourceIterator = Objects.requireNonNull(source).iterator();
         this.windowSize = windowSize;
         this.size = calculateSize(source, windowSize);

@@ -13,7 +13,7 @@ object Parallel{
 
     println(time(10){xs map timeConsumedMap})
 
-    println(time(10){xs.par map timeConsumedMap})
+    //println(time(10){xs.pa map timeConsumedMap})
   }
 
   def timeConsumedMap(x: Int): Int = {

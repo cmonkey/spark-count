@@ -1,6 +1,5 @@
 package org.github.cmonkey.spark
 
-import scala.collection.JavaConversions._
 
 object ConvertingJavaCollections{
 
@@ -11,7 +10,7 @@ object ConvertingJavaCollections{
     javaList.add(20.0)
     javaList.add(40.0)
 
-    javaList.map(value => value * 10)
+    //javaList.map(value => value * 10)
 
     /*
     val scalaList = javaList.asScala
