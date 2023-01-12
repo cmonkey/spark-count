@@ -25,7 +25,7 @@
         <akka.version>2.5.23</akka.version>
         <mysql-connector.version>8.0.28</mysql-connector.version>
         <scala-test.version>3.0.8</scala-test.version>
-        <alchim31.scala.plugin>4.1.1</alchim31.scala.plugin>
+        <alchim31.scala.plugin>4.8.0</alchim31.scala.plugin>
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
         <delta.version>0.4.0</delta.version>
 
